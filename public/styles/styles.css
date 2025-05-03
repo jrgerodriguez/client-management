@@ -1,83 +1,166 @@
 /* Globales */
 html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
-  
-  *, *::before, *::after {
-    box-sizing: inherit;
-  }
-  
-  body {
-    font-size: 1.6rem;
-    line-height: 1.6;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  /* Tipografía */
-  h1 {
-    margin: 0;
-    font-size: 2.4rem;
-    font-weight: 600;
-    color: white;
-  }
-  
-  /* Links */
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  /* Header */
-  header {
-    background-color: #1e3a5f;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  
-  /* Layout Principal */
-  .layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    height: calc(100vh - 64px);
-  }
-  
-  /* Panel lateral */
-  .side-pannel {
-    background-color: #ffffff;
-    border-right: 1px solid #ddd;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  .option {
-    display: block;
-    padding: 1rem 1.5rem;
-    background-color: #f3f4f6;
-    color: #1e3a5f;
-    font-weight: 500;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .option:hover {
-    background-color: #e2e8f0;
-    transform: translateX(4px);
-  }
-  
-  /* Contenido principal */
-  .content {
-    padding: 3rem;
-    background-color: #fdfdfd;
-    overflow-y: auto;
-  }
-  
-  .content h1 {
-    color: #1e3a5f; /* o el color que querás */
-  }
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif; 
+  background-color: #f4f6f9;
+  color: #2e2e2e;
+}
+
+/* Tipografía */
+h1 {
+  margin: 0;
+  font-size: 2rem; /* Tamaño ajustado */
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  background-color: #002b5c;
+  padding: 1.2rem 2rem; /* Reducción de padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  border-bottom: 2px solid #004085;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Layout Principal */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  height: calc(100vh - 64px);
+  gap: 2rem;
+}
+
+/* Panel lateral */
+.side-panel {
+  background-color: #ffffff;
+  border-right: 1px solid #d1d5db;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option {
+  display: block;
+  padding: 1rem 1.5rem;
+  background-color: #e3eaf2;
+  color: #002b5c;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: #cfddeb;
+  transform: translateX(4px);
+}
+
+/* Contenido principal */
+.content {
+  padding: 2.5rem; /* Ajuste de padding */
+  background-color: #ffffff;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content h1 {
+  color: #002b5c;
+  font-size: 2.2rem; /* Tamaño ajustado */
+  font-weight: 700;
+  margin-bottom: 1.5rem; /* Menos margen */
+  border-left: 4px solid #004085;
+  padding-left: 1rem;
+  text-transform: uppercase;
+}
+
+/* Tarjeta del cliente */
+.client-info {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem;
+  border-radius: 10px; /* Esquinas más suaves */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-top: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.3s ease;
+}
+
+.client-info:hover {
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+}
+
+.client-info p {
+  margin: 0;
+  color: #2e2e2e;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.client-info .name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #002b5c;
+  margin-bottom: 0.2rem;
+}
+
+.client-info .status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  background-color: #e0f7ec;
+  color: #007e33;
+  text-transform: capitalize;
+}
+
+.client-info .status.inactive {
+  background-color: #fdecea;
+  color: #c62828;
+}
+
+.ver-detalles {
+  display: block; 
+  width: max-content; 
+  padding: 0.3rem 0.8rem;
+  color: #6c757d; 
+  font-weight: 500;
+  border-radius: 4px;
+  /* text-transform: uppercase; */
+  font-size: 1.2rem; 
+  text-align: center;
+  transition: border-color 0.3s, color 0.3s; 
+  cursor: pointer;
+  margin-top: 0.6rem; 
+  border: 1px solid #6c757d; 
+}
+
+.ver-detalles:hover {
+  border-color: #5a6268; 
+  color: #5a6268; 
+}
+
