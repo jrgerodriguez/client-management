@@ -179,3 +179,19 @@ header {
   text-align: left;
 }
 
+/* Client Details */
+.client-details {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.client-details p {
+  margin: 0.5rem 0;
+}
+
+.client-details strong {
+  font-weight: 600;
+  color: #002b5c;
+}
+
+

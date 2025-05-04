@@ -1,6 +1,7 @@
+import { displayClientById } from "./getClientByID.js";
+
 export async function displayAllClients() {
   const existingClientsOption = document.querySelector("#existing-clients");
-  const addNewClientOption = document.querySelector("#add-new-client");
   const contentTitle = document.querySelector("#content-title");
   const content = document.querySelector("#content");
 
@@ -43,7 +44,7 @@ export async function displayAllClients() {
                       <td>${client.state}</td>
                       <td>${client.zip_code}</td>
                       <td class="status ${statusClass}">${client.client_status}</td>
-                      <td><a href="#" class="see-details">See Details</a></td>
+                      <td><a href="#" class="see-details" data-id=${client._id}>See Details</a></td>
                     </tr>
                   `;
                 })
@@ -53,17 +54,12 @@ export async function displayAllClients() {
         `;
 
         content.insertAdjacentHTML("beforeend", tableHTML);
+
+        displayClientById()
       }
     } catch (error) {
       content.innerHTML = `<p style="color:red;">Error loading clients.</p>`;
       console.error("Fetch error:", error);
     }
-  });
-
-  addNewClientOption.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    contentTitle.textContent = "Add New Client";
-    content.innerHTML = "";
   });
 }
