@@ -18,24 +18,41 @@ export async function displayAllClients() {
 
         clients.sort((a, b) => a.name.localeCompare(b.name));
 
-        clients.forEach((client) => {
-          const statusClass =
-            client.client_status === "Inactivo" ? "inactive" : "active";
+        const tableHTML = `
+          <table class="clients-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${clients
+                .map((client) => {
+                  const statusClass = client.client_status === "Inactive" ? "inactive" : "active";
+                  return `
+                    <tr>
+                      <td>${client.name}</td>
+                      <td>${client.address}</td>
+                      <td>${client.city}</td>
+                      <td>${client.state}</td>
+                      <td>${client.zip_code}</td>
+                      <td class="status ${statusClass}">${client.client_status}</td>
+                      <td><a href="#" class="see-details">See Details</a></td>
+                    </tr>
+                  `;
+                })
+                .join("")}
+            </tbody>
+          </table>
+        `;
 
-          const clientHTML = `
-            <div class="client-info">
-              <p class="name">${client.name}</p>
-              <p class="address">${client.address}</p>
-              <p class="city">${client.city}</p>
-              <p class="state">${client.state}</p>
-              <p class="zipcode">${client.zip_code}</p>
-              <p class="status ${statusClass}">${client.client_status}</p>
-                <a href="#" class="ver-detalles">Ver Detalles</a>
-            </div>  
-          `;
-
-          content.insertAdjacentHTML("beforeend", clientHTML);
-        });
+        content.insertAdjacentHTML("beforeend", tableHTML);
       }
     } catch (error) {
       content.innerHTML = `<p style="color:red;">Error loading clients.</p>`;
@@ -47,6 +64,6 @@ export async function displayAllClients() {
     e.preventDefault();
 
     contentTitle.textContent = "Add New Client";
-    content.innerHTML = ""
+    content.innerHTML = "";
   });
 }

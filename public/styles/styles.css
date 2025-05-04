@@ -15,7 +15,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.6;
   margin: 0;
-  font-family: "Helvetica Neue", Arial, sans-serif; 
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #f4f6f9;
   color: #2e2e2e;
 }
@@ -23,10 +23,9 @@ body {
 /* Tipografía */
 h1 {
   margin: 0;
-  font-size: 2rem; /* Tamaño ajustado */
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 400;
   color: #ffffff;
-  text-transform: uppercase;
 }
 
 /* Links */
@@ -38,8 +37,8 @@ a {
 /* Header */
 header {
   background-color: #002b5c;
-  padding: 1.2rem 2rem; /* Reducción de padding */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 2px solid #004085;
   display: flex;
   justify-content: space-between;
@@ -83,7 +82,7 @@ header {
 
 /* Contenido principal */
 .content {
-  padding: 2.5rem; /* Ajuste de padding */
+  padding: 2.5rem;
   background-color: #ffffff;
   overflow-y: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -91,76 +90,92 @@ header {
 
 .content h1 {
   color: #002b5c;
-  font-size: 2.2rem; /* Tamaño ajustado */
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 1.5rem; /* Menos margen */
+  margin-bottom: 1.5rem;
   border-left: 4px solid #004085;
   padding-left: 1rem;
   text-transform: uppercase;
 }
 
-/* Tarjeta del cliente */
-.client-info {
-  background-color: #ffffff;
-  padding: 1.5rem 2rem;
-  border-radius: 10px; /* Esquinas más suaves */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  margin-top: 1.5rem;
-  transition: box-shadow 0.2s ease, transform 0.3s ease;
+/* Tabla de clientes */
+.clients-table {
+  width: 100%; 
+  height: 100%; 
+  border-collapse: collapse;
+  margin-top: 2rem;
+  display: table;
 }
 
-.client-info:hover {
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.15);
+.clients-table th,
+.clients-table td {
+  padding: 0.8rem; 
+  text-align: center; 
+  vertical-align: middle;
 }
 
-.client-info p {
-  margin: 0;
-  color: #2e2e2e;
-  font-size: 1.4rem;
-  margin-bottom: 0.4rem;
-}
-
-.client-info .name {
-  font-size: 1.6rem;
+.clients-table th {
+  background-color: #ffffff; 
+  color: #000000; 
+  font-size: 1.5rem;
   font-weight: 600;
-  color: #002b5c;
-  margin-bottom: 0.2rem;
 }
 
-.client-info .status {
-  display: inline-block;
+.clients-table td {
+  background-color: #ffffff; 
+  color: #2e2e2e;
+  font-size: 1.5rem; 
+}
+
+.clients-table .status {
   padding: 0.3rem 0.8rem;
   border-radius: 12px;
-  font-size: 1.3rem;
   font-weight: 500;
-  background-color: #e0f7ec;
-  color: #007e33;
   text-transform: capitalize;
 }
 
-.client-info .status.inactive {
-  background-color: #fdecea;
-  color: #c62828;
+.clients-table .status {
+  display: inline-block;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 1rem;
 }
 
-.ver-detalles {
-  display: block; 
-  width: max-content; 
+.clients-table .status.active {
+  color: #2e7d32; 
+  background-color: #e0f2f1; 
+}
+
+.clients-table .status.inactive {
+  color: #b71c1c; 
+  background-color: #fce4ec; 
+}
+
+.see-details {
+  display: inline-block;
   padding: 0.3rem 0.8rem;
-  color: #6c757d; 
+  color: #002b5c;
   font-weight: 500;
   border-radius: 4px;
-  /* text-transform: uppercase; */
-  font-size: 1.2rem; 
+  font-size: 1.2rem;
   text-align: center;
-  transition: border-color 0.3s, color 0.3s; 
   cursor: pointer;
-  margin-top: 0.6rem; 
-  border: 1px solid #6c757d; 
+  border: 1px solid #002b5c;
+  transition: border-color 0.3s, color 0.3s;
 }
 
-.ver-detalles:hover {
-  border-color: #5a6268; 
-  color: #5a6268; 
+.see-details:hover {
+  border-color: #5a6268;
+  color: #5a6268;
+}
+
+.clients-table tbody tr {
+  border-bottom: 1px solid #f0f0f0; 
+}
+
+.clients-table th, .clients-table td {
+  padding: 8px 12px;
+  text-align: left;
 }
 
