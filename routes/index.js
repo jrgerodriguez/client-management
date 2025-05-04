@@ -6,4 +6,6 @@ router.get("/clients", controller.getAllClients)
 
 router.get("/get-client/:clientId", controller.getClientById)
 
+router.put("/change-status/:clientId", controller.changeStatus)
+
 module.exports = router
