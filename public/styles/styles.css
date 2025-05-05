@@ -194,4 +194,74 @@ header {
   color: #002b5c;
 }
 
+/* Add New Client Form */
+form {
+  display: grid;
+  gap: .2rem;
+  max-width: 500px;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+form label {
+  font-weight: 500;
+  color: #002b5c;
+  
+  font-size: 1.4rem;
+}
+
+form input,
+form select {
+  padding: 1rem;
+  font-size: 1.4rem;
+  border: 1px solid #ccd6e0;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #2e2e2e;
+  width: 100%;
+  transition: border-color 0.3s;
+  margin-bottom: 2rem;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #004085;
+  outline: none;
+}
+
+form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='none' stroke='%23002b5c' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.6rem;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 100%;
+  }
+}
+
+#create-cliente-btn {
+  background-color: #002b5c;
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+#create-cliente-btn:hover {
+  background-color: #004085;
+}
+
+#create-cliente-btn:focus {
+  outline: none;
+}
 
