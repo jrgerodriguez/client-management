@@ -15,7 +15,7 @@ export async function deleteUser() {
 
                 if (response.ok) {
                     alert("Client Eliminated")
-                    
+                    window.location.reload();
                 } else {
                     alert("Failed to eliminate client")
                 }

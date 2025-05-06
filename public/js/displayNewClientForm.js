@@ -1,3 +1,5 @@
+import { createNewClient } from "./createNewClient.js";
+
 export async function displayForm() {
   const contentTitle = document.querySelector("#content-title");
   const addNewClientOption = document.querySelector("#add-new-client");
@@ -7,7 +9,7 @@ export async function displayForm() {
     contentTitle.textContent = "Add New Client";
     content.innerHTML = `
             <div>
-        <form action="/create-client" method="POST">
+        <form action="/create-client" method="POST" id="create-client-form">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
 
@@ -85,5 +87,7 @@ export async function displayForm() {
         </form>
     </div>
         `;
+    createNewClient() //Inside otherwise it'd take it as if the form has not been created yet.
   });
 }
+

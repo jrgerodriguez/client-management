@@ -5,5 +5,4 @@ import { displayClientById } from "./getClientByID.js";
 document.addEventListener("DOMContentLoaded", () => {
   displayAllClients()
   displayForm()
-  
 });
