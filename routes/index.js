@@ -8,4 +8,8 @@ router.get("/get-client/:clientId", controller.getClientById)
 
 router.put("/change-status/:clientId", controller.changeStatus)
 
+router.post("/create-client", controller.createClient)
+
+router.delete("/delete-client/:clientId", controller.deleteClient)
+
 module.exports = router

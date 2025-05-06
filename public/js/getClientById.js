@@ -1,4 +1,5 @@
 import { changeClientStatus } from "./changeClientStatus.js";
+import { deleteUser } from "./deleteUser.js";
 
 export async function displayClientById() {
   const contentTitle = document.querySelector("#content-title");
@@ -30,7 +31,7 @@ export async function displayClientById() {
                       <p><strong>Status:</strong> 
                         <span class="status ${details.client_status.toLowerCase()}">${details.client_status}</span>
                       </p>
-                      <a href="" class="see-details">Edit</a> <a href="#" class="see-details change-status" data-id="${details._id}">Make ${details.client_status === "Inactive" ? "Active" : "Inactive"}</a> <a href="" class="see-details">Delete</a>
+                      <a href="" class="see-details">Edit</a> <a href="#" class="see-details change-status" data-id="${details._id}">Make ${details.client_status === "Inactive" ? "Active" : "Inactive"}</a> <a href="" class="see-details delete-client" data-id="${details._id}">Delete</a>     
                     </div>
                     `;
                     content.insertAdjacentHTML("beforeend", clientInfo);
@@ -42,5 +43,6 @@ export async function displayClientById() {
     }) 
 }
 
-    //Funcion para cambiar el estado del cliente
+//Funcion para cambiar el estado del cliente
 changeClientStatus()
+deleteUser()

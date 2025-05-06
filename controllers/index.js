@@ -21,7 +21,7 @@ async function getClientById(req, res) {
   try {
     const client = await collection.findOne({ _id: new ObjectId(clientId)})
     if(!client) {
-      res.status(404).json({error: "Client not found"})
+      return res.status(404).json({error: "Client not found"})
     }
     res.status(200).json(client);
   } catch (error) {
@@ -38,7 +38,7 @@ async function changeStatus(req, res) {
       const client = await collection.findOne({ _id: new ObjectId(clientId)})
 
       if(!client) {
-        res.status(404).json({error:"Client not found" })
+        return res.status(404).json({error:"Client not found" })
       }
   
       const newStatus = client.client_status === "Active" ? "Inactive" : "Active"
@@ -56,4 +56,47 @@ async function changeStatus(req, res) {
     }
 }
 
-module.exports = { getAllClients , getClientById, changeStatus};
+//This function registers a new client
+async function createClient (req, res) {
+  const {name, address, city, state, zip_code, phone, email} = req.body
+
+  const newUser = {
+    name,
+    address,
+    city,
+    state,
+    zip_code,
+    phone,
+    email,
+    client_status: "Active"
+  }
+  
+  try {
+    
+    await collection.insertOne(newUser)
+    res.status(200).json({message: "New Client Created Successfully"})
+
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+//This function eliminates a new client
+async function deleteClient (req, res) {
+  const clientId = req.params.clientId
+
+  try {
+    const client = await collection.findOne({ _id: new ObjectId(clientId)})
+    if(!client) {
+      return res.status(404).json({error:"Client not found" })
+    }
+    await collection.deleteOne({_id: new ObjectId(clientId)})
+    res.status(200).json({message: "Client successfully deleted"})
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+} 
+
+module.exports = { getAllClients , getClientById, changeStatus, createClient, deleteClient};

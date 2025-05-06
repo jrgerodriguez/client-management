@@ -7,18 +7,18 @@ export async function displayForm() {
     contentTitle.textContent = "Add New Client";
     content.innerHTML = `
             <div>
-        <form action="">
+        <form action="/create-client" method="POST">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
 
             <label for="address">Address</label>
-            <input type="text" id="address" name="address">
+            <input type="text" id="address" name="address" required>
 
             <label for="city">City</label>
-            <input type="text" id="city" name="city">
+            <input type="text" id="city" name="city" required>
 
             <label for="state">State</label>
-            <select id="state" name="state">
+            <select id="state" name="state" required>
                 <option value="" disabled selected>-- Select --</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -72,14 +72,14 @@ export async function displayForm() {
                 <option value="WY">Wyoming</option>
               </select>
 
-            <label for="zipcode">ZIP Code</label>
-            <input type="text" id="zipcode" name="zipcode">
+            <label for="zip_code">ZIP Code</label>
+            <input type="text" id="zipcode" name="zip_code" required>
 
             <label for="phone">Phone</label>
-            <input type="phone" id="phone" name="phone">
+            <input type="phone" id="phone" name="phone" required>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
 
             <input type="submit" value="Create New Client" id="create-cliente-btn">
         </form>
