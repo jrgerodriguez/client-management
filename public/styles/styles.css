@@ -265,3 +265,47 @@ form select {
   outline: none;
 }
 
+/* Delete Client Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 1rem;
+}
+
+.modal-buttons button {
+  margin: 0 0.5rem;
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  color: #002b5c;
+  font-weight: 500;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #002b5c;
+  transition: border-color 0.3s, color 0.3s;
+  background-color: transparent;
+}
+
+.modal-buttons button:hover {
+  border-color: #5a6268;
+  color: #5a6268;
+}

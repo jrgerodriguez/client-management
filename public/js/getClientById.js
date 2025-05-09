@@ -1,5 +1,5 @@
 import { changeClientStatus } from "./changeClientStatus.js";
-import { deleteUser } from "./deleteUser.js";
+import { deleteClient } from "./deleteClient.js";
 
 export async function displayClientById() {
   const contentTitle = document.querySelector("#content-title");
@@ -45,4 +45,4 @@ export async function displayClientById() {
 
 //Funcion para cambiar el estado del cliente
 changeClientStatus()
-deleteUser()
+deleteClient()
