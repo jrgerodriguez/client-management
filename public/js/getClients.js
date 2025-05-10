@@ -1,4 +1,4 @@
-import { displayClientById } from "./getClientByID.js";
+import { displayClientById } from "./getClientById.js";
 
 export async function displayAllClients() {
   const existingClientsOption = document.querySelector("#existing-clients");
