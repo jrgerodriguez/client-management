@@ -11,8 +11,6 @@ export async function createEditModal(clientId) {
         console.log(error)
     }
 
-    console.log(data)
-
     const editModal = document.createElement("div")
     editModal.classList.add("editmodal-overlay")
     editModal.innerHTML = `
@@ -99,6 +97,41 @@ export async function createEditModal(clientId) {
     `
     document.body.appendChild(editModal)
 
+
+// ****** Process Client Edit
+    const editClientForm = document.querySelector("#edit-client-form")
+    editClientForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target)
+        const updatedClientData = {}
+
+        formData.forEach((value, key) => {
+            updatedClientData[key] = value
+        })
+
+        try {
+            const response = await fetch(`/edit-client/${clientId}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedClientData)
+        })
+
+            if(response.ok) {
+                alert("Cliet Was Edited")
+                editModal.remove()
+            }
+
+        } catch (error) {
+            console.error(error)
+            alert('Error: Unable to edit client') 
+        }   
+    })
+
+
+// ****** Removing the modal
     const editModalContent = document.querySelector(".edit-modal")
 
     editModal.addEventListener("click", (e) => {
