@@ -17,7 +17,7 @@ export async function createEditModal(clientId) {
     editModal.classList.add("editmodal-overlay")
     editModal.innerHTML = `
             <div class="edit-modal">
-        <form action="/edit-client/${data._id}" method="POST" id="edit-client-form">
+        <form id="edit-client-form">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required value="${data.name}">
 
