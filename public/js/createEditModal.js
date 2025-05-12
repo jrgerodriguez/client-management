@@ -1,3 +1,5 @@
+import { confirmEditClient } from "./confirmEditClient.js"
+
 export async function createEditModal(clientId) {
 
     let data = {}
@@ -99,37 +101,7 @@ export async function createEditModal(clientId) {
 
 
 // ****** Process Client Edit
-    const editClientForm = document.querySelector("#edit-client-form")
-    editClientForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.target)
-        const updatedClientData = {}
-
-        formData.forEach((value, key) => {
-            updatedClientData[key] = value
-        })
-
-        try {
-            const response = await fetch(`/edit-client/${clientId}`, {
-            method: "PUT",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(updatedClientData)
-        })
-
-            if(response.ok) {
-                alert("Cliet Was Edited")
-                editModal.remove()
-                window.location.reload()
-            }
-
-        } catch (error) {
-            console.error(error)
-            alert('Error: Unable to edit client') 
-        }   
-    })
+    confirmEditClient(clientId)
 
 
 // ****** Removing the modal
