@@ -122,6 +122,7 @@ export async function createEditModal(clientId) {
             if(response.ok) {
                 alert("Cliet Was Edited")
                 editModal.remove()
+                window.location.reload()
             }
 
         } catch (error) {

@@ -99,4 +99,37 @@ async function deleteClient (req, res) {
   }
 } 
 
-module.exports = { getAllClients , getClientById, changeStatus, createClient, deleteClient};
+//This function edits a client's information based on the details
+async function editClient (req, res) {
+  const clientId = req.params.clientId
+
+  const {name, address, city, state, zip_code, phone, email} = req.body
+
+  const details = {
+    name,
+    address,
+    city,
+    state,
+    zip_code,
+    phone,
+    email
+  }
+
+  try {
+    const result = await collection.updateOne(
+      {_id: new ObjectId(clientId)},
+      {$set: details}
+    )
+
+    if (result.matchedCount === 0) {
+            return res.status(400).json({error: "Unable to update"})
+    }
+
+    res.status(200).json({message: "Client successfully updated"})
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+module.exports = { getAllClients , getClientById, changeStatus, createClient, deleteClient, editClient};
