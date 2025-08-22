@@ -20,7 +20,7 @@ export async function confirmEditClient(clientId) {
         })
 
             if(response.ok) {
-                alert("Cliet Was Edited")
+                alert("Client Was Edited")
                 document.querySelector(".editmodal-overlay")?.remove()
                 window.location.reload()
             }

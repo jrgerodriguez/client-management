@@ -107,11 +107,11 @@ export async function createEditModal(clientId) {
 // ****** Removing the modal
     const editModalContent = document.querySelector(".edit-modal")
 
-    editModal.addEventListener("click", (e) => {
-        if(!editModalContent.contains(e.target)) {
-            editModal.remove()
-        }
-    })
+    // editModal.addEventListener("click", (e) => {
+    //     if(!editModalContent.contains(e.target)) {
+    //         editModal.remove()
+    //     }
+    // })
 
     document.querySelector("#cancel-edit").addEventListener("click", () => {
         editModal.remove()
