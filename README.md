@@ -1,6 +1,8 @@
 ## Client Management App with Node.js
 
-This application stores clients' information which can be edited or deleted. It's an example of bigger systems where we can implement payment records, invoices, etc. 
+This is a Client Management Application built with Node.js, Express, and MongoDB.
+It allows storing, editing, and deleting client information.
+The project is designed as a small-scale example of larger systems, where features such as payment records, invoices, and reports could be implemented in the future.
 
 https://client-management-2vij.onrender.com/
 
@@ -10,7 +12,8 @@ https://client-management-2vij.onrender.com/
 - Mongo db
 
 ## FEATURES
-- MVC Pattern
-- SPA example
+- CRUD operations for client records (Create, Read, Update, Delete)
+- MVC pattern for a clean and organized structure.
+- Single Page Application (SPA) example for smooth navigation.
 
-  <img width="1912" height="934" alt="image" src="https://github.com/user-attachments/assets/68ad01fa-c385-4df7-b379-dca37b9a66c5" />
+<img width="1912" height="934" alt="image" src="https://github.com/user-attachments/assets/68ad01fa-c385-4df7-b379-dca37b9a66c5" />
